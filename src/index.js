@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => (<div>Hi!</div>);
+import SearchBar from './components/search_bar';
 
-ReactDOM.render(App, document.getElementById('root'));
+const App = () => (<div>
+    <SearchBar></SearchBar>
+</div>);
+
+ReactDOM.render(<App/>, document.getElementById('root'));
