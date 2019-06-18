@@ -1,7 +1,7 @@
 import React from 'react';
 
 const VideoDetail = ({video}) => {
-    const videoId = video.id.videoId;
+    const videoId = 1;
     const url = `https://www.youtube.com/embed/${videoId}`;
 
     return(

@@ -5,7 +5,7 @@ import YTAsearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-import apiKey from './apk_key';
+import apiKey from './apiKey';
 
 
 class App extends Component{
