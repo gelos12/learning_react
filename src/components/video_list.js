@@ -2,9 +2,8 @@ import React from 'react';
 import VideoListItem from './video_list_item';
 
 const VideoList = props =>{
-    console.log(props.videos);
     const VideoListItems = props.videos.map(
-        video => <VideoListItem key={video.etag} video={video}/>
+        video => <VideoListItem key={video.etag} video={video} onChangeVideo={selectedVideo => props.onChangeVideo(selectedVideo)}/>
     );
     return (
         <ul className="col3">
