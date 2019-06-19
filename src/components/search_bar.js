@@ -14,7 +14,7 @@ class SearchBar extends Component{
     }
     render(){
         return (
-            <div className="col-12 justify-content-center mb-3">
+            <div className="row justify-content-center col-12 mb-3">
                 <div className="col-8">
                     <input
                         className="col" type="text"
