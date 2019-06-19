@@ -30,8 +30,8 @@ class App extends Component{
 
     render(){
         return (
-            <div>
-                {/*<SearchBar onSearchChangeTerm={ term => this.VideoSearch(term)}/>*/}
+            <div className="row  px-3 py-3">
+                <SearchBar onSearchChangeTerm={ term => this.VideoSearch(term)}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList
                     videos={this.state.videos}

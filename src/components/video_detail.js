@@ -4,12 +4,11 @@ const VideoDetail = ({video}) => {
     if (!video){
         return <div>loading...</div>
     }
-    console.log(video);
     const videoId = video.id.videoId;
     const url = `https://www.youtube.com/embed/${videoId}`;
 
     return(
-        <div className="video-detail col-md-8">
+        <div className="col-md-12 col-xl-8 col-lg-12">
             <div className="embed-responsive embed-responsive-16by9">
                 <iframe src={url} className="embed-responsive-item"/>
             </div>

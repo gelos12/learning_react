@@ -6,9 +6,11 @@ const VideoList = props =>{
         video => <VideoListItem key={video.etag} video={video} onChangeVideo={selectedVideo => props.onChangeVideo(selectedVideo)}/>
     );
     return (
-        <ul className="col3">
-            {VideoListItems}
-        </ul>
+        <div className="video-list col-xl-4 col-lg-12">
+            <ul >
+                {VideoListItems}
+            </ul>
+        </div>
     );
 };
 
