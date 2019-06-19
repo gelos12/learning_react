@@ -1,23 +1,24 @@
 import React from 'react';
 
-const VideoDetail = ({video}) => {
-    if (!video){
+const videoDetail = ({video}) => {
+    if(!video){
         return <div>loading...</div>
     }
+    console.log(video);
     const videoId = video.id.videoId;
-    const url = `https://www.youtube.com/embed/${videoId}`;
-
-    return(
-        <div className="col-md-12 col-xl-8 col-lg-12">
+    const url = `http://www.youtube.com/embed/${videoId}`;
+    return (
+        <div className="col-md-12 col-lg-12 col-xl-7">
             <div className="embed-responsive embed-responsive-16by9">
-                <iframe src={url} className="embed-responsive-item"/>
+                <iframe src={url} frameBorder="0"></iframe>
             </div>
-            <div className="details">
-                <div>{video.snippet.title}</div>
-                <div>{video.snippet.description}</div>
+            <div className="col-12">
+                <h3>{video.snippet.channelTitle}</h3>
+                <p>{video.snippet.title}</p>
+                <p>{video.snippet.description}</p>
             </div>
         </div>
     )
-}
+};
 
-export default VideoDetail;
+export default videoDetail;

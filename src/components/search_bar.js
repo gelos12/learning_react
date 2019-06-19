@@ -1,24 +1,25 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
+
+
 
 class SearchBar extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            term:''
-        };
+        this.state = { term : '' };
     }
-    onSearchChangeTerm(term){
-        this.props.onSearchChangeTerm(term);
+
+    onChangeTerm(term){
+        this.props.onChangeTerm(term);
         this.setState({term});
     }
     render(){
         return (
-            <div className="col-12 search-bar row justify-content-md-center mb-3">
+            <div className="col-12 justify-content-center mb-3">
                 <div className="col-8">
                     <input
-                        className="col"
+                        className="col" type="text"
                         value={this.state.term}
-                        onChange={ event => this.onSearchChangeTerm(event.target.value)}
+                        onChange={event=> this.onChangeTerm(event.target.value)}
                     />
                 </div>
             </div>
@@ -26,4 +27,4 @@ class SearchBar extends Component{
     }
 }
 
-export default SearchBar
+export default SearchBar;

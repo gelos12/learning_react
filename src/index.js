@@ -1,48 +1,41 @@
-import React, { Component } from 'react';
+import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
-import YTAsearch from 'youtube-api-search';
+import YTsearch from 'youtube-api-search';
 
+import apiKey from './api_key';
 import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-import youtubeKey from './apiKey';
-
-
+import VideoList from './components/video_list';
 class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-            videos : [] ,
-            selectVideo : null
+            videos : [],
+            video : null
         };
-        this.VideoSearch('아이패드미니');
+        this.onChangeVideos('아이패드미니5');
     }
-
-    VideoSearch(term){
-        YTAsearch({key:youtubeKey, term},videos => {
-            this.setState({
-                videos : videos,
-                selectedVideo : videos[0]
-            });
-        });
-        console.log(this.state);
-    }
-
     render(){
         return (
-            <div className="row  px-3 py-3">
-                <SearchBar onSearchChangeTerm={ term => this.VideoSearch(term)}/>
-                <VideoDetail video={this.state.selectedVideo}/>
+            <div className="container row px-3 py-3">
+                <SearchBar onChangeTerm={term => this.onChangeVideos(term)}/>
+                <VideoDetail video ={this.state.video}/>
                 <VideoList
                     videos={this.state.videos}
-                    onChangeVideo = {selectedVideo => this.onChangeVideo(selectedVideo)}
+                    onClickVideo={video => this.setState({video})}
                 />
             </div>
         )
-    };
+    }
 
-    onChangeVideo(selectedVideo){
-        this.setState({selectedVideo})
+    onChangeVideos(term){
+        YTsearch({key: apiKey, term}, videos=>{
+            console.log(videos);
+            this.setState({
+                videos : videos,
+                video : videos[0]
+            })
+        });
     }
 }
 

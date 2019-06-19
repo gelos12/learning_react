@@ -1,10 +1,13 @@
 import React from 'react';
 
-const VideoListItem = ({video, onChangeVideo}) => {
+const videoListItem = ({onClickVideo, video}) =>{
+    if(!video){
+        return <div>loading...</div>
+    }
     const imgUrl = video.snippet.thumbnails.default.url;
     return (
-        <li onClick={() => onChangeVideo(video)} className="list-group-item">
-            <div className="video-list media">
+        <li onClick={()=>onClickVideo(video)} className="list-group-item media">
+            <div className="media">
                 <div className="media-left">
                     <img className="media-object" src={imgUrl}/>
                 </div>
@@ -15,7 +18,7 @@ const VideoListItem = ({video, onChangeVideo}) => {
                 </div>
             </div>
         </li>
-    );
+    )
 };
 
-export default VideoListItem;
+export default videoListItem;
